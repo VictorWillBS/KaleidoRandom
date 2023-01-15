@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
-import EpisodesBox from "../components/episodesBox"
-import { RandomButton } from "../components/randomButton"
-import { Title } from "../components/title"
+import EpisodesBox from "../components/Episodes/episodesBox"
+import { RandomButton } from "../components/Button/randomizeButton"
+import { Title } from "../components/Title/title"
 import { generateOrder } from "../functions/generateOrder"
 import { useRefreshList } from "../hooks/useRefreshList"
 
