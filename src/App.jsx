@@ -1,5 +1,5 @@
 import GlobalStyle from './globalStyle/resetCss'
-import { MainPage } from './pages/main'
+import { MainPage } from './pages/mainPage'
 
 function App() {
 
