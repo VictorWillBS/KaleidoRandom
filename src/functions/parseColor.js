@@ -1,5 +1,4 @@
 export function parseColor(color){
-  console.log(color);
   const hashColor = {
     red:"#B60000",
     yellow:"#FFC700",
