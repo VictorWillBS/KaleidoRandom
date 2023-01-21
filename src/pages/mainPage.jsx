@@ -13,7 +13,7 @@ export function MainPage() {
   return (
     <Body>
       <Container>
-        <Title>Sua ordem é: </Title>
+        <Title>Sua ordem de episodios é: </Title>
         <EpContainer>
           <EpisodesBox epList={epList} />
         </EpContainer>
