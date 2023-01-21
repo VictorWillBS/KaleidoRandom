@@ -2,21 +2,22 @@ import styled, { keyframes } from "styled-components";
 import { parseColor } from "../../functions/parseColor";
 import { Container, ContainerBox } from "../Content/content";
 
-export function Episode({title, position}){
+export function Episode({ title, position }) {
   const containerConfig = `
     width:100px;
     height: max-content;
     flex-direction:column;
-  `
+  `;
   return (
     <Container config={containerConfig}>
-      <ColorBlock color={parseColor(title)} time={position+1} > <h3>{position+1}</h3> </ColorBlock>
-      <H3 time={position+1}> {title}</H3>
+      <ColorBlock color={parseColor(title)} time={position + 1}>
+        {" "}
+        <h3>{position + 1}</h3>{" "}
+      </ColorBlock>
+      <H3 time={position + 1}> {title}</H3>
     </Container>
-  )
+  );
 }
-
-
 
 const coloredProgress = keyframes`
   0% {
@@ -56,27 +57,26 @@ export const opacityProgress = keyframes`
   100%{
     opacity:100%
   }
-`
+`;
 export const H3 = styled.h3`
-  margin-top:28px;
-  font-family: 'Inter', sans-serif;
-  animation:${opacityProgress}  ${({time})=>`2.${(time*1)}8s`||"1s"} ease-out;
-  font-size:28px;
-  font-weight:bold;
-  color:white;
-`
-
+  margin-top: 28px;
+  font-family: "Inter", sans-serif;
+  animation: ${opacityProgress} ${({ time }) => `2.${time * 1}8s` || "1s"}
+    ease-out;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+`;
 const ColorBlock = styled(ContainerBox)`
-  width:100px;
-  height:100px;
-  animation: ${coloredProgress} ${({time})=>`2.${time}s`} ease-in  ;
-  background-color:${({color})=>color};
-  h3{
-    font-family: 'Inter', sans-serif;
-    animation:${opacityProgress}  ${({time})=>`2.${(time*1)}8s`} ease-out;
-    font-size:28px;
-    font-weight:bold;
-    color:#000;
-    }
-
-`
+  width: 100px;
+  height: 100px;
+  animation: ${coloredProgress} ${({ time }) => `2.${time}s`} ease-in;
+  background-color: ${({ color }) => color};
+  h3 {
+    font-family: "Inter", sans-serif;
+    animation: ${opacityProgress} ${({ time }) => `2.${time * 1}8s`} ease-out;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+  }
+`;
