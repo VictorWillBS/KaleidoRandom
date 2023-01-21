@@ -6,7 +6,7 @@ export default function EpisodesBox({epList}){
     <ContentBox>
       <Grid>
         {epList.map((title,position)=>{
-          return(<Episode position={position} key={title} title={title}/>)
+          return(<Episode key={position} position={position} title={title}/>)
         })}
         
       </Grid>
