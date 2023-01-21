@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import styled from "styled-components"
 import EpisodesBox from "../components/Episodes/episodesBox"
-import { RandomButton } from "../components/Button/randomizeButton"
+import { RandomizeButton } from "../components/Button/randomizeButton"
 import { Title } from "../components/Title/title"
 import { generateOrder } from "../functions/generateOrder"
 import { useRefreshList } from "../hooks/useRefreshList"
@@ -17,7 +17,7 @@ export function MainPage(){
         <EpContainer>
             <EpisodesBox epList={epList}/>
         </EpContainer>
-            <RandomButton update={update} setUpdate={setUpdate}></RandomButton>
+            <RandomizeButton update={update} setUpdate={setUpdate}></RandomizeButton>
         </Container>
     </Body>
   )
