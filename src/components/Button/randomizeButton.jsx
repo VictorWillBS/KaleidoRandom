@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H3 } from "../Episodes/episode;"
+import { H3 } from "../Episodes/episode";
 
 export function RandomizeButton({setUpdate,update}){
   const refreshList = ()=>{

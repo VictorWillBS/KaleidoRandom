@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { generateOrder } from "../../functions/generateOrder"
 import { Episode } from "./episode"
 
 export default function EpisodesBox({epList}){
@@ -25,12 +24,12 @@ const ContentBox = styled.section`
 `
 
 const Grid = styled.section`
-max-width:1100px;
-width:100%;
-display:grid;
-grid-row-gap:20px;
-justify-items: center;
-grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  max-width:1100px;
+  width:100%;
+  display:grid;
+  grid-row-gap:20px;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 
 `
 
