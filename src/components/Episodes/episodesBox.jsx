@@ -1,11 +1,20 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Episode } from "./episode";
 
-export default function EpisodesBox({ epList }) {
+export default function EpisodesBox({ epList, historyEpList }) {
+  const [renderList, setRenderList] = useState([]);
+  useEffect(() => {
+    if (renderList === epList) {
+      setRenderList(historyEpList);
+    } else {
+      setRenderList(epList);
+    }
+  }, [epList, historyEpList]);
   return (
     <ContentBox>
       <Grid>
-        {epList.map((title, position) => {
+        {renderList.map((title, position) => {
           return <Episode key={position} position={position} title={title} />;
         })}
       </Grid>
