@@ -1,9 +1,9 @@
 export function parseColor(color) {
   const hashColor = {
     red: "#B60000",
-    yellow: "#FFC700",
-    green: "#24B600",
-    purple: "#B556FF",
+    yellow: "#FFB016",
+    green: "#239806",
+    purple: "#8F00FF",
     blue: "#2F37F5",
     orange: "#DC6A00",
     pink: "#E800B5",
