@@ -77,6 +77,6 @@ const ColorBlock = styled(ContainerBox)`
     animation: ${opacityProgress} ${({ time }) => `2.${time * 1}8s`} ease-out;
     font-size: 28px;
     font-weight: bold;
-    color: #000;
+    color: ${({ color }) => (color === "#FFF" ? "#000" : "#FFF")};
   }
 `;
