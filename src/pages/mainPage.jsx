@@ -5,6 +5,7 @@ import { RandomizeButton } from "../components/Button/randomizeButton";
 import { Title } from "../components/Title/title";
 import { generateOrder } from "../functions/generateOrder";
 import { useRefreshList } from "../hooks/useRefreshList";
+import { Navbarr } from "../components/Navbarr/navbarr";
 
 export function MainPage() {
   const [epList, setEpList] = useState([]);
@@ -12,6 +13,7 @@ export function MainPage() {
   useRefreshList(setEpList, generateOrder, update);
   return (
     <Body>
+      <Navbarr></Navbarr>
       <Container>
         <Title>Sua ordem de episodios é: </Title>
         <EpContainer>
