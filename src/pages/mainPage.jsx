@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import EpisodesBox from "../components/Episodes/episodesBox";
 import { RandomizeButton } from "../components/Button/randomizeButton";
@@ -6,18 +6,34 @@ import { Title } from "../components/Title/title";
 import { generateOrder } from "../functions/generateOrder";
 import { useRefreshList } from "../hooks/useRefreshList";
 import { Navbarr } from "../components/Navbarr/navbarr";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useUpdateLocalStorage } from "../hooks/useUpdateLocalStorage";
+import HistoryBox from "../components/historyBox/historyBox";
 
 export function MainPage() {
   const [epList, setEpList] = useState([]);
   const [update, setUpdate] = useState(true);
+  const [historyActivity, setHistoryActivity] = useState("off");
+  const [historyEpList, setHistoryEpList] = useState([]);
+  const [storedValue, setValue] = useLocalStorage("history", epList);
   useRefreshList(setEpList, generateOrder, update);
+  useUpdateLocalStorage(epList, storedValue, setValue, 8, epList);
+
   return (
     <Body>
-      <Navbarr></Navbarr>
+      <Navbarr
+        historyActivity={historyActivity}
+        setHistoryActivity={setHistoryActivity}
+      />
+      <HistoryBox
+        historyActivity={historyActivity}
+        historyList={storedValue}
+        setHistoryEpList={setHistoryEpList}
+      />
       <Container>
         <Title>Sua ordem de episodios é: </Title>
         <EpContainer>
-          <EpisodesBox epList={epList} />
+          <EpisodesBox epList={epList} historyEpList={historyEpList} />
         </EpContainer>
         <RandomizeButton
           update={update}
@@ -28,7 +44,6 @@ export function MainPage() {
   );
 }
 const Body = styled.div`
-  width: 100vw;
   min-height: 100vh;
   height: 100%;
   background-color: #171717;
