@@ -6,13 +6,20 @@ import inlineLogo from "../../assets/kaleidoscope-inlines.png";
 import outlineLogo from "../../assets/kaleidoscope-outlines.png";
 import { useState } from "react";
 
-export function Navbarr() {
+export function Navbarr({ historyActivity, setHistoryActivity }) {
   const [active, setActive] = useState("off");
   function toggleButton() {
-    if (active == "off") {
+    if (active === "off") {
       setActive("on");
     } else {
       setActive("off");
+    }
+  }
+  function togglehistory() {
+    if (historyActivity === "off") {
+      setHistoryActivity("on");
+    } else {
+      setHistoryActivity("off");
     }
   }
   return (
@@ -30,7 +37,7 @@ export function Navbarr() {
         >
           <img className={active} src={arrow} />
           <Menu className={active}>
-            <p>Histórico</p>
+            <p onClick={togglehistory}>Histórico</p>
           </Menu>
         </ArrowButton>
       </NavContainer>
@@ -79,6 +86,7 @@ const MobileLogo = styled.img`
 
 const ArrowButton = styled.button`
   position: relative;
+  cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   img {
@@ -92,6 +100,7 @@ const ArrowButton = styled.button`
 const Menu = styled.section`
   width: 150px;
   height: 80px;
+  cursor: pointer;
   display: none;
   flex-direction: column;
   justify-content: space-evenly;
@@ -102,7 +111,8 @@ const Menu = styled.section`
   bottom: -90px;
   right: -40px;
   p {
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: bold;
     color: white;
   }
   &&.on {
