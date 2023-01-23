@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { arrayIsEqual } from "../../functions/arrayIsEqual";
 import { Episode } from "./episode";
 
 export default function EpisodesBox({ epList, historyEpList }) {
   const [renderList, setRenderList] = useState([]);
   useEffect(() => {
-    if (renderList === epList) {
-      setRenderList(historyEpList);
-    } else {
+    if (
+      arrayIsEqual(renderList, epList) &&
+      arrayIsEqual(renderList, historyEpList)
+    ) {
+      return;
+    }
+    if (arrayIsEqual(renderList, epList)) {
+      return setRenderList(historyEpList);
+    }
+    if (arrayIsEqual(renderList, historyEpList)) {
       setRenderList(epList);
     }
   }, [epList, historyEpList]);
