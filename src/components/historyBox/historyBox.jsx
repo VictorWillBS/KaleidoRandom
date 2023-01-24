@@ -43,5 +43,5 @@ const Grid = styled.section`
   display: grid;
   grid-row-gap: 20px;
   justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 135px));
 `;

@@ -71,6 +71,8 @@ const Container = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  padding: 60px 60px 0 60px;
+  padding: 0 60px 0 60px;
+  @media (max-width: 450px) {
+    padding-top: 60px;
+  }
 `;
